@@ -7,7 +7,8 @@
   ],
   "main": "dist/index.js",
   "scripts": {
-    "test": "node -r esbuild-register test.ts"
+    "test": "node -r esbuild-register test.ts",
+    "test:docker": "esbuild --format=cjs test.ts > test.js && node test.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
   "types": "./dist/index.d.ts",
   "devDependencies": {
     "@types/node": "^17.0.38",
+    "esbuild": "^0.14.42",
     "esbuild-register": "^3.3.2",
     "node-fetch": "^2.6.7"
   }

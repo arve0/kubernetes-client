@@ -8,7 +8,7 @@ import https from "https";
 
   // only needed when API-server have self signed ca
   // hack to make node-fetch use certificate authority
-  https.globalAgent.options.ca = [context.cluster.ca]
+  https.globalAgent.options.ca = [context.cluster.ca];
 
   const configuration = new Configuration({
     fetchApi: fetch, // only needed when API-server have self signed ca
@@ -21,4 +21,7 @@ import https from "https";
   const pods = await core.listNamespacedPod({ namespace: "default" });
 
   console.log(pods.items.map((pod) => pod.metadata.name));
-})();
+})().catch((error) => {
+  console.error(error);
+  process.exit(1);
+});

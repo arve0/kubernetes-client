@@ -21,3 +21,12 @@ kubernetes-client-fetch/dist: generated-client/dist generated-client/dist/runtim
 test:
 	npm test -w kubeconfig
 	npm test -w kubernetes-client-fetch
+
+k8s-test:
+	docker build --tag arve0/kubernetes-client-test .
+	docker push arve0/kubernetes-client-test
+	kubectl create rolebinding default-can-read-stuff --clusterrole=view --serviceaccount=default:default --namespace=default || true
+	kubectl delete pod kubernetes-client-test || true
+	kubectl run kubernetes-client-test --restart Never --image arve0/kubernetes-client-test
+	while ! kubectl logs kubernetes-client-test &> /dev/null; do sleep 1; done
+	kubectl logs --follow kubernetes-client-test

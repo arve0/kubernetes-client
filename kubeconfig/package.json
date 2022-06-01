@@ -4,8 +4,9 @@
   "description": "read kubernetes config context",
   "main": "index.js",
   "scripts": {
-    "build": "esbuild index.ts > index.js",
-    "test": "node -r esbuild-register test.ts"
+    "build": "esbuild --format=cjs index.ts > index.js",
+    "test": "node -r esbuild-register test.ts",
+    "test:docker": "esbuild --format=cjs test.ts > test.js && node test.js"
   },
   "repository": {
     "type": "git",
