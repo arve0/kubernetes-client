@@ -1,0 +1,30 @@
+{
+  "name": "kubernetes-client-fetch",
+  "version": "1.24.0",
+  "description": "kubernetes API client using fetch",
+  "files": [
+    "/dist"
+  ],
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "node -r esbuild-register test.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/arve0/kubernetes-client"
+  },
+  "keywords": [
+    "kubernetes",
+    "k8s",
+    "client-node",
+    "fetch"
+  ],
+  "author": "Arve Seljebu",
+  "license": "Apache-2.0",
+  "types": "./dist/index.d.ts",
+  "devDependencies": {
+    "@types/node": "^17.0.38",
+    "esbuild-register": "^3.3.2",
+    "node-fetch": "^2.6.7"
+  }
+}

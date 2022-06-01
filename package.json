@@ -1,0 +1,8 @@
+{
+  "name": "kubernetes-client",
+  "workspaces": [
+    "generated-client",
+    "kubeconfig",
+    "kubernetes-client-fetch"
+  ]
+}
